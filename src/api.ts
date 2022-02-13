@@ -1,3 +1,3 @@
 export async function fetchSomeDataFromAPI () {
-    return await {hello: 'world'}
+    return await 'world'
 }

@@ -15,5 +15,6 @@ export {
   green,
   red,
 } from "https://deno.land/std@0.122.0/fmt/colors.ts";
+export { html } from "https://deno.land/x/html@v1.2.0/mod.ts";
 export { join } from "https://deno.land/std@0.123.0/path/mod.ts";
 export { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";

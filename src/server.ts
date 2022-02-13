@@ -17,6 +17,13 @@ const PORT = parseInt(Deno.env.get("PORT") || "8080");
 const __dirname = new URL(".", import.meta.url).pathname;
 const publicFolderPath = join(__dirname, "..", "public");
 
+// Mock Data
+const comments = [
+  "Hey! This is the first comment.",
+  "Hi, from another comment!",
+  "Wow",
+];
+
 const app = new Application();
 
 // Error handler middleware
@@ -90,7 +97,10 @@ router.get("/", async (context) => {
   console.log(">>>", context.request.url.pathname);
 
   const startF = Date.now();
-  const state = await fetchSomeDataFromAPI();
+  const state = {
+    hello: await fetchSomeDataFromAPI(),
+    comments,
+  }
   const msF = Date.now() - startF;
   context.response.headers.set("X-Fetch-Time", `${msF}ms`);
   console.log(`>>> fetch complete in ${msF}ms`)
