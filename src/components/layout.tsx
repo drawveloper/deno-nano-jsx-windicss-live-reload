@@ -29,5 +29,7 @@ export const Layout = (props: { state: State }) => (
     </div>
 
     <Markdown markdown={props.state.markdown} />
+
+    Read more at <a href="https://futuredriven.blog" target="_blank">my blog.</a>
   </div>
 );

@@ -1,5 +1,9 @@
 # Nano JSX with Deno
 
+Deploy with Deno Deploy:
+
+[![](./public/deno-deploy-button.svg)](https://dash.deno.com/new?url=https://raw.githubusercontent.com/FutureDrivenDev/deno-nano-jsx-windicss-live-reload/main/src/server.ts)
+
 This is the starter I wish I had two weeks ago. The simplest JSX setup you can use for Deno server side rendered apps.
 
 - Deno with Oak server
