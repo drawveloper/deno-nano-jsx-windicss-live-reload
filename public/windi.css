@@ -1,0 +1,35 @@
+.bg-emerald-50\/50 {
+  --tw-bg-opacity: 0.5;
+  background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
+}
+.bg-gradient-to-r {
+  background-image: -o-linear-gradient(left, var(--tw-gradient-stops));
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--tw-gradient-stops)));
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.from-emerald-50 {
+  --tw-gradient-from: rgba(236, 253, 245, var(--tw-from-opacity, 1));
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0));
+}
+.to-blue-200 {
+  --tw-gradient-to: rgba(191, 219, 254, var(--tw-to-opacity, 1));
+}
+.border-indigo-800\/50 {
+  --tw-border-opacity: 0.5;
+  border-color: rgba(55, 48, 163, var(--tw-border-opacity));
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.border-2 {
+  border-width: 2px;
+}
+.font-sans {
+  font-family: Graphik,sans-serif;
+}
+.font-serif {
+  font-family: Merriweather,serif;
+}
+.p-4 {
+  padding: 1rem;
+}

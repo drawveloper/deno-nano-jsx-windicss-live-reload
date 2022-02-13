@@ -1,7 +1,13 @@
-import { defineConfig } from "windicss/helpers";
-import colors from 'windicss/colors';
+const helpers = require("windicss/helpers");
+const typography = require("windicss/plugin/typography");
 
-export default defineConfig({
+module.exports = helpers.defineConfig({
+  extract: {
+    include: [
+      'src/components/*.tsx',
+      'src/global.css',
+    ],
+  },  
   theme: {
     extend: {
       screens: {
@@ -11,31 +17,14 @@ export default defineConfig({
         "xl": "1280px",
         "2xl": "1536px",
       },
-      colors: {
-        gray: colors.coolGray,
-        blue: colors.sky,
-        red: colors.rose,
-        pink: colors.fuchsia,
-      },
       fontFamily: {
         sans: ["Graphik", "sans-serif"],
         serif: ["Merriweather", "serif"],
       },
-      spacing: {
-        128: "32rem",
-        144: "36rem",
-      },
-      borderRadius: {
-        "4xl": "2rem",
-      },
     },
   },
   plugins: [
-    require("windicss/plugin/filters"),
-    require("windicss/plugin/forms"),
-    require("windicss/plugin/aspect-ratio"),
-    require("windicss/plugin/line-clamp"),
-    require("windicss/plugin/typography")({
+    typography({
       modifiers: ["DEFAULT", "sm", "lg", "red"],
     }),
   ],

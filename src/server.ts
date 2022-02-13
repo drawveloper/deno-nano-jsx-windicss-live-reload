@@ -8,6 +8,7 @@ import {
   green,
   red,
   join,
+  Marked,
 } from "./deps.ts";
 
 import { fetchSomeDataFromAPI } from './api.ts'
@@ -97,14 +98,22 @@ router.get("/", async (context) => {
   console.log(">>>", context.request.url.pathname);
 
   const startF = Date.now();
-  const state = {
-    hello: await fetchSomeDataFromAPI(),
-    comments,
-  }
   const msF = Date.now() - startF;
   context.response.headers.set("X-Fetch-Time", `${msF}ms`);
   console.log(`>>> fetch complete in ${msF}ms`)
 
+  const startM = Date.now();
+  const markdownContent = await Deno.readTextFile('public/markdown/test.md')
+  const parsedMarkdown = Marked.parse(markdownContent)
+  const msM = Date.now() - startM;
+  context.response.headers.set("X-Markdown-Time", `${msM}ms`);
+  console.log(`>>> fetch complete in ${msM}ms`)
+
+  const state = {
+    hello: await fetchSomeDataFromAPI(),
+    comments,
+    markdown: parsedMarkdown.content,
+  }
   const start = Date.now();
   const result = render(state);
   const ms = Date.now() - start;
