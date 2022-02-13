@@ -42,6 +42,7 @@ export const render = (state: {hello: string}) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${head.join("\n")}
+        ${Deno.env.get('ENABLE_LIVE_RELOAD')? <script src="/livereload.js"></script> : ''}
       </head>
       <body>
         ${body}

@@ -4,7 +4,7 @@
     "description": "Template using nano-jsx, deno and windi with server-side live reload.",
     "scripts": {
         "build": "windicss --output public/windi.css --minify src/components/*.tsx",
-        "dev": "concurrently -n \"windi,deno\" -c \"green,blue\" \"npm run windi\" \"denon start\"",
+        "dev": "concurrently -n \"windi,deno\" -c \"green,blue\" \"npm run windi\" \"denon dev\"",
         "windi": "windicss --output public/windi.css --dev src/components/*.tsx",
         "fmt": "prettier --write .",
         "fmt.check": "prettier --check .",
