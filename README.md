@@ -20,3 +20,7 @@ Create a `.env` file to add tokens and enable live reload:
 ### Current workaround
 
 I originally designed this to use `concurrently` with deno and windi in dev mode, running in parallel. However, due to https://github.com/windicss/windicss/issues/694 I'm currently calling `windicss` one-off upon server restart. This ensures CSS is correctly generated and takes only ~300ms.
+
+### Note about JSX pragma
+
+`/** @jsxImportSource https://esm.sh/nano-jsx@v0.0.29/lib **/` in every jsx component is unfortunately required to deploy on Deno Deploy — they don't support import maps yet. 

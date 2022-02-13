@@ -1,3 +1,4 @@
+/** @jsxImportSource https://esm.sh/nano-jsx@v0.0.29/lib **/
 import { Helmet, renderSSR, html } from "../deps.ts";
 import { isLiveReloadEnabled } from "../config.ts";
 import { Layout, State } from "./layout.tsx"

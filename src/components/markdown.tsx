@@ -1,3 +1,4 @@
+/** @jsxImportSource https://esm.sh/nano-jsx@v0.0.29/lib **/
 import { html } from "../deps.ts";
 
 html`

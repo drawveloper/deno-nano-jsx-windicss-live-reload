@@ -1,3 +1,4 @@
+/** @jsxImportSource https://esm.sh/nano-jsx@v0.0.29/lib **/
 import { Helmet } from "../deps.ts";
 import { Comments } from "./comments.tsx";
 import { Hi } from "./hi.tsx";
