@@ -2,8 +2,10 @@ import { html } from "../deps.ts";
 
 html`
 <style lang="windi">
-  .markdown h1 {
-    @apply font-bold text-pink-500;
+  .markdown {
+    h1,h2,h3 {
+      @apply font-bold text-pink-500;
+    }
   }
 
   .markdown a {
