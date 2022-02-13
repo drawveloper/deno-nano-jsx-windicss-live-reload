@@ -1,12 +1,15 @@
 # Nano JSX with Deno
 
+- WindiCSS
+- LiveReload
+- Oak
+
 ### Getting started
 
-- Install [denon](https://github.com/denosaurs/denon)
-- Run: `denon start`
-- Open: [http://localhost:8080/](http://localhost:8080/)
-- Change files - denon restarts server.
+Create a `.env` file to add tokens and enable live reload: 
 
-### Next step:
+`echo "ENABLE_LIVE_RELOAD=true" > .env`
 
-I want to make the browser automatically reload when it detects the server has restarted. I will use SSR and a timestamp.
+`npm i`
+
+`npm start`

@@ -1,14 +1,18 @@
 import { Helmet, renderSSR } from "nano";
 
-import { Comments } from "./Comments.tsx";
-import { Hello } from "./Hello.tsx";
+import { Comments } from "./comments.tsx";
+import { Hi } from "./hi.tsx";
 
 const comments = [
   "Hey! This is the first comment.",
   "Hi, from another comment!",
 ];
 
-const App = () => (
+export interface State {
+  hello: string
+}
+
+const App = (props: {state: State}) => (
   <div>
     <Helmet>
       <title>Nano JSX SSR</title>
@@ -18,7 +22,7 @@ const App = () => (
       />
     </Helmet>
 
-    <Hello />
+    <Hi hello={props.state.hello}/>
 
     <h2>Comments</h2>
 
@@ -28,8 +32,8 @@ const App = () => (
   </div>
 );
 
-export const renderApp = () => {
-  const ssr = renderSSR(<App />);
+export const render = (state: {hello: string}) => {
+  const ssr = renderSSR(<App state={state} />);
   const { body, head, footer } = Helmet.SSR(ssr);
 
   return `<!DOCTYPE html>

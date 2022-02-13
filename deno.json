@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "https://cdn.esm.sh/nano-jsx@0.0.28/lib",
-    "lib": ["dom", "dom.asynciterable", "deno.ns"]
+    "jsxImportSource": "https://esm.sh/nano-jsx@v0.0.29/lib",
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns", "esnext"]
   }
 }
+  
