@@ -13,6 +13,7 @@ import {
 
 import { fetchSomeDataFromAPI } from './api.ts'
 import { render } from "./components/App.tsx";
+import { isLiveReloadEnabled } from "./config.ts";
 
 const PORT = parseInt(Deno.env.get("PORT") || "8080");
 const __dirname = new URL(".", import.meta.url).pathname;
@@ -136,6 +137,20 @@ app.use(async (context) => {
 app.addEventListener("listen", () => {
   console.log(`Listening on ${cyan(`http://localhost:${PORT}`)}`);
 });
+
+if (isLiveReloadEnabled()) {
+  const start = Date.now();
+  // Run windi every restart because --dev will break with style blocks: 
+  const windi =  Deno.run({
+    cmd: ['npm', 'run', 'windi'],
+    stdout: "piped",
+    stderr: "piped",
+  })
+  const out = await windi.output()
+  const ms = Date.now() - start;
+  console.log(new TextDecoder().decode(out))
+  console.log(`>>> windi complete in ${ms}ms`)
+}
 
 // Start server
 await app.listen({ port: PORT });

@@ -1,6 +1,7 @@
 import { Helmet } from "../deps.ts";
 import { Comments } from "./comments.tsx";
 import { Hi } from "./hi.tsx";
+import { Markdown } from "./markdown.tsx";
 
 export interface State {
   hello: string
@@ -9,19 +10,13 @@ export interface State {
 }
 
 export const Layout = (props: { state: State }) => (
-  <div class="bg-emerald-50/50 p-4 rounded-lg border-2 border-indigo-800/50">
+  <div class="bg-emerald-50/75 p-4 rounded-lg border-2 border-indigo-800/50  visited:text-green-600">
     <Helmet>
       <title>Nano JSX SSR</title>
       <meta
         name="description"
         content="Server Side Rendered Nano JSX Application"
       />
-      <style> {
-        `.markdown h1 {
-          @apply font-bold text-blue-500;
-        }`
-      }
-      </style>
     </Helmet>
 
     <Hi hello={props.state.hello} />
@@ -32,7 +27,6 @@ export const Layout = (props: { state: State }) => (
       <Comments comments={props.state.comments} />
     </div>
 
-    <div class="markdown" innerHTML={{__dangerousHtml: props.state.markdown}}>
-    </div>
+    <Markdown markdown={props.state.markdown} />
   </div>
 );

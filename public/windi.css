@@ -1,5 +1,5 @@
-.bg-emerald-50\/50 {
-  --tw-bg-opacity: 0.5;
+.bg-emerald-50\/75 {
+  --tw-bg-opacity: 0.75;
   background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
 }
 .bg-gradient-to-r {
@@ -7,12 +7,12 @@
   background-image: -webkit-gradient(linear, left top, right top, from(var(--tw-gradient-stops)));
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
-.from-emerald-50 {
-  --tw-gradient-from: rgba(236, 253, 245, var(--tw-from-opacity, 1));
+.from-gray-900 {
+  --tw-gradient-from: rgba(17, 24, 39, var(--tw-from-opacity, 1));
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0));
 }
-.to-blue-200 {
-  --tw-gradient-to: rgba(191, 219, 254, var(--tw-to-opacity, 1));
+.to-emerald-900 {
+  --tw-gradient-to: rgba(6, 78, 59, var(--tw-to-opacity, 1));
 }
 .border-indigo-800\/50 {
   --tw-border-opacity: 0.5;
@@ -32,4 +32,25 @@
 }
 .p-4 {
   padding: 1rem;
+}
+.visited\:text-green-600:visited {
+  --tw-text-opacity: 1;
+  color: rgba(5, 150, 105, var(--tw-text-opacity));
+}
+.markdown h1 {
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgba(236, 72, 153, var(--tw-text-opacity));
+}
+.markdown a {
+  --tw-text-opacity: 1;
+  color: rgba(5, 150, 105, var(--tw-text-opacity));
+}
+.markdown a:hover {
+  --tw-text-opacity: 1;
+  color: rgba(167, 243, 208, var(--tw-text-opacity));
+}
+.markdown a:visited {
+  --tw-text-opacity: 1;
+  color: rgba(6, 95, 70, var(--tw-text-opacity));
 }

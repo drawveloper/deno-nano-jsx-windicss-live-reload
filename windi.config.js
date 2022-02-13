@@ -1,22 +1,13 @@
-const helpers = require("windicss/helpers");
 const typography = require("windicss/plugin/typography");
 
-module.exports = helpers.defineConfig({
+module.exports = {
   extract: {
     include: [
-      'src/components/*.tsx',
-      'src/global.css',
-    ],
-  },  
+      'src/components/*.tsx'
+    ]
+  },
   theme: {
     extend: {
-      screens: {
-        "sm": "640px",
-        "md": "768px",
-        "lg": "1024px",
-        "xl": "1280px",
-        "2xl": "1536px",
-      },
       fontFamily: {
         sans: ["Graphik", "sans-serif"],
         serif: ["Merriweather", "serif"],
@@ -28,4 +19,4 @@ module.exports = helpers.defineConfig({
       modifiers: ["DEFAULT", "sm", "lg", "red"],
     }),
   ],
-});
+};
