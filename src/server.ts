@@ -12,7 +12,7 @@ import {
 } from "./deps.ts";
 
 import { fetchSomeDataFromAPI } from './api.ts'
-import { render } from "./components/App.tsx";
+import { render } from "./components/app.tsx";
 import { isLiveReloadEnabled } from "./config.ts";
 
 const PORT = parseInt(Deno.env.get("PORT") || "8080");
