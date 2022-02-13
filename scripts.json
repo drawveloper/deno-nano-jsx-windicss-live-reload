@@ -5,6 +5,6 @@
         "dev": "deno run --allow-net --allow-env --allow-read --unstable --import-map=import_map.json --no-check src/server.ts"
     },
     "watcher": {
-      "match": ["server.ts", "src/**/*.ts", "src/**/*.tsx", "public/windi.css"]
+      "match": ["deno.json", "src/**/*.ts", "src/**/*.tsx", "public/windi.css"]
     }
 }

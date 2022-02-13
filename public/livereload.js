@@ -1,26 +1,21 @@
 ((l) => {
   let w, i;
 
-  function d(m) {
-    console.info("[refresh] ", m);
-  }
-
   function r() {
     l.reload();
   }
 
-  function s(f) {
+  function s(f, t) {
     w && w.close();
-    w = new WebSocket(`${l.origin.replace("http", "ws")}/_r`);
+    w = new WebSocket(`${l.origin.replace("http", "ws")}/_r`);    
     w.addEventListener("open", f);
     w.addEventListener("message", () => {
-      d("reloading...");
+      console.info("Reloading.");
       r();
     });
     w.addEventListener("close", () => {
-      d("connection lost - reconnecting...");
       clearTimeout(i);
-      i = setTimeout(() => s(r), 1000);
+      i = setTimeout(() => s(r, t ? Math.min(t*1.3, 5000) : 50), 100 + t);
     });
   }
 
