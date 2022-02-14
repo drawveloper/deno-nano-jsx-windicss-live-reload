@@ -9,9 +9,9 @@ import {
   red,
   join,
   Marked,
+  createServerTimingMiddleware,
 } from "./deps.ts";
 
-import { createServerTimingMiddleware } from './server-timing.ts'
 import { fetchSomeDataFromAPI } from './api.ts'
 import { render } from "./components/app.tsx";
 import { isLiveReloadEnabled } from "./config.ts";

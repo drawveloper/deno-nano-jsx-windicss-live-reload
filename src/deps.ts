@@ -19,3 +19,4 @@ export {
 export { html } from "https://deno.land/x/html@v1.2.0/mod.ts";
 export { join } from "https://deno.land/std@0.123.0/path/mod.ts";
 export { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
+export { createServerTimingMiddleware } from "https://deno.land/x/server_timing@v0.0.1/mod.ts";
