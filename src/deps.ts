@@ -3,6 +3,7 @@ import "https://deno.land/x/dotenv/load.ts";
 export * from "https://deno.land/x/lodash@4.17.19/dist/lodash.js";
 export {
   Application,
+  Context,
   HttpError,
   httpErrors,
   Router,

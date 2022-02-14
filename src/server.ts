@@ -11,6 +11,7 @@ import {
   Marked,
 } from "./deps.ts";
 
+import { createServerTimingMiddleware } from './server-timing.ts'
 import { fetchSomeDataFromAPI } from './api.ts'
 import { render } from "./components/app.tsx";
 import { isLiveReloadEnabled } from "./config.ts";
@@ -18,6 +19,7 @@ import { isLiveReloadEnabled } from "./config.ts";
 const PORT = parseInt(Deno.env.get("PORT") || "8080");
 const __dirname = new URL(".", import.meta.url).pathname;
 const publicFolderPath = join(__dirname, "..", "public");
+const { start, end, serverTimingMiddleware } = createServerTimingMiddleware()
 
 // Mock Data
 const comments = [
@@ -27,6 +29,8 @@ const comments = [
 ];
 
 const app = new Application();
+
+app.use(serverTimingMiddleware)
 
 // Error handler middleware
 app.use(async (context, next) => {
@@ -97,31 +101,19 @@ router.get('/_r', async ctx => {
 // Handle main route
 router.get("/", async (context) => {
   console.log(">>>", context.request.url.pathname);
-
-  const startF = Date.now();
-  const msF = Date.now() - startF;
-  context.response.headers.set("X-Fetch-Time", `${msF}ms`);
-  console.log(`>>> fetch complete in ${msF}ms`)
-
-  const startM = Date.now();
+  
+  start('markdown')
   const markdownContent = await Deno.readTextFile('public/markdown/test.md')
-  const parsedMarkdown = Marked.parse(markdownContent)
-  const msM = Date.now() - startM;
-  context.response.headers.set("X-Markdown-Time", `${msM}ms`);
-  console.log(`>>> fetch complete in ${msM}ms`)
+  const markdown = Marked.parse(markdownContent).content
+  end('markdown')
 
-  const state = {
-    hello: await fetchSomeDataFromAPI(),
-    comments,
-    markdown: parsedMarkdown.content,
-  }
-  const start = Date.now();
-  const result = render(state);
-  const ms = Date.now() - start;
-  context.response.headers.set("X-Render-Time", `${ms}ms`);
-  console.log(`>>> render complete in ${ms}ms`)
+  start('fetch')
+  const hello = await fetchSomeDataFromAPI();
+  end('fetch')
 
-  context.response.body = result;
+  start('render')
+  context.response.body = render({ hello, comments, markdown });
+  end('render')
 });
 
 app.use(router.routes());
